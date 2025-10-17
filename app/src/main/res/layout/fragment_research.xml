@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -13,84 +12,91 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Android Research System"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="24dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enter Research Topic:"
-            android:textSize="16sp"
+            android:text="@string/research_prompt_hint"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
             android:layout_marginBottom="8dp" />
 
         <EditText
             android:id="@+id/researchPromptEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="e.g., Implementing real-time chat with WebSockets in Android"
+            android:hint="@string/research_prompt_hint"
+            android:inputType="textMultiLine"
             android:minHeight="120dp"
             android:gravity="top"
-            android:inputType="textMultiLine"
             android:layout_marginBottom="16dp" />
 
-        <Button
-            android:id="@+id/researchButton"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start Research"
+            android:text="@string/research_depth"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
             android:layout_marginBottom="8dp" />
 
+        <Spinner
+            android:id="@+id/researchDepthSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/startResearchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start_research"
+            android:layout_marginBottom="24dp" />
+
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/researchProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="24dp" />
 
         <TextView
-            android:id="@+id/researchResultText"
+            android:id="@+id/researchStatusText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter a research prompt to begin..."
-            android:textSize="14sp"
-            android:lineSpacingExtra="4dp"
-            android:layout_marginBottom="16dp" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/researchResultsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/exportButton"
+            android:id="@+id/clearButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Export to PDF"
-            android:visibility="invisible"
-            android:layout_marginBottom="8dp" />
+            android:text="@string/clear"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/researchHistoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="@string/research_history"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:layout_marginBottom="16dp" />
 
-            <Button
-                android:id="@+id/historyButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="View History"
-                android:layout_marginEnd="8dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/researchHistoryRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/clearButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Clear"
-                android:layout_marginStart="8dp" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/noHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_research_history"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:gravity="center"
+            android:padding="32dp" />
 
     </LinearLayout>
-
 </ScrollView>
